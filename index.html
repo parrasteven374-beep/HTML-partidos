@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Partidos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .config-box {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 140px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 6px;
+            width: 220px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button.btn-cargar {
+            background-color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Gestion de Partidos</h1>
+
+    <!-- Sección 1: Configuración de la URL de la API -->
+    <h2>Ingresa aqui la URL de la API:</h2>
+    <div class="config-box">
+        <label for="apiUrl">URL DE LA API:</label>
+        <input type="text" id="apiUrl" placeholder="http://localhost:####/api/partidos">
+        <button onclick="guardarUrl()">Guardar URL</button>
+        <button onclick="cargarPartidos()">Cargar Partidos</button>
+    </div>
+
+    <!-- Sección 2: Formulario de registro de partidos -->
+    <fieldset style="margin-top: 20px; padding: 20px; border-radius: 6px; border: 1px solid #ced4da;">
+        <legend style="font-weight: bold; padding: 0 10px;">Registrar Nuevo Partido</legend>
+
+        <form id="formpartido">
+            <div class="form-group">
+                <label for="equipoLocal">Equipo Local:</label>
+                <input type="text" id="equipoLocal" required>
+            </div>
+
+            <div class="form-group">
+                <label for="equipoVisitante">Equipo Visitante:</label>
+                <input type="text" id="equipoVisitante" required>
+            </div>
+
+            <div class="form-group">
+                <label for="golesLocal">Goles Local:</label>
+                <input type="number" id="golesLocal" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="golesVisitante">Goles Visitante:</label>
+                <input type="number" id="golesVisitante" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="fechaPartido">Fecha Partido:</label>
+                <input type="date" id="fechaPartido">
+            </div>
+
+            <button type="button" onclick="guardarPartido()">Guardar Partido</button>
+        </form>
+    </fieldset>
+
+    <!-- Sección 3: Tabla para mostrar el listado de partidos -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Local</th>
+                <th>Visitante</th>
+                <th>Goles L.</th>
+                <th>Goles V.</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody id="tablaPartidos">
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
